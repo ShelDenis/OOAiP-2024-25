@@ -24,6 +24,15 @@ public class VectorTests
     }
 
     [Fact]
+    public void Execute_Equal_Null()
+    {
+        var vector1 = new Vector([3, 5]);
+        object? vector2 = null;
+
+        Assert.False(vector1.Equals(vector2));
+    }
+
+    [Fact]
     public void Execute_IncorrectDimensions_ThrowsException()
     {
         var vector1 = new Vector([3, 5]);
