@@ -27,7 +27,7 @@ public class Angle
         return new Angle(result);
     }
 
-    public override bool Equals(object obj)
+    public override bool Equals(object? obj)
     {
         return obj != null && obj is Angle angle && Degrees == angle.Degrees;
     }

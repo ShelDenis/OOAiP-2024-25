@@ -24,6 +24,24 @@ public class AngleTests
     }
 
     [Fact]
+    public void Execute_Equal_Null()
+    {
+        Angle angle1 = new Angle(180);
+        object? angle2 = null;
+        Assert.False(angle1.Equals(angle2));
+
+    }
+
+    [Fact]
+    public void Execute_Equal_False()
+    {
+        Angle angle1 = new Angle(180);
+        Angle angle2 = new Angle(90);
+        Assert.False(angle1.Equals(angle2));
+
+    }
+
+    [Fact]
     public void Execute_AnglePrint()
     {
         var angle = new Angle(67);
