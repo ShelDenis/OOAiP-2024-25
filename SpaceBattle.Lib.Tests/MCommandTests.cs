@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using Moq;
+using Xunit;
 namespace SpaceBattle.Lib.Tests;
 
 public class MCommandTests
@@ -6,12 +7,13 @@ public class MCommandTests
     [Fact]
     public void MCommandTest()
     {
-        var ctt1 = new CommandToTest();
-        var ctt2 = new CommandToTest();
-        List<ICommand> lst = [ctt1, ctt2];
+        var cmd1 = new Mock<ICommand>();
+        var cmd2 = new Mock<ICommand>();
+        List<ICommand> lst = [cmd1.Object, cmd2.Object];
         var mc = new MCommand(lst);
         mc.Execute();
 
-        Assert.Equal(2, ctt1.getCount() + ctt2.getCount());
+        cmd1.Verify(x => x.Execute());
+        cmd2.Verify(x => x.Execute());
     }
 }
